@@ -1,17 +1,21 @@
-const express = require('express');
-const colors = require('colors');
-const app = express();
-//
-const morgan = require('morgan');
-app.use(morgan('dev'));
+import 'dotenv/config';
+import app from "./app.js";
+const PORT = process.env.PORT || 8000;
+import sequelize from "../src/config/database.js";
+const startServer = async () => {
+    try{
+        await sequelize.authenticate();
+        console.log("Database Connected");
 
-//Router
-app.get('/', (req, res) => {
-    res.status(200).send('<h1>Hello Quaeen!</h1>');
-})
+        await sequelize.sync({ alter: true });
+        console.log("Database synced");
 
-//port
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server started on port ${port}`.cyan);
-})
+        app.listen(PORT, () => {
+            console.log("Server started on port: " + PORT);
+        })
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+startServer();

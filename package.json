@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon src/index.js"
+    "server": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,21 @@
     "colors": "^1.4.0",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.16.0",
+    "sequelize": "^6.37.7",
+    "zod": "^4.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ngoquyen07/First_Nodejs_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ngoquyen07/First_Nodejs_project/issues"
+  },
+  "homepage": "https://github.com/Ngoquyen07/First_Nodejs_project#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
